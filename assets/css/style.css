@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  width: 100%;
+  padding: 2em;
+  border-radius: 1em;
+  border: 1px solid #ccc;
+  background-color: #e7e7e7;
+}
+form input[type=text],
+form input[type=number],
+form input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form fieldset {
+  border: none;
+  margin-top: 1em;
+}
+form fieldset:first-of-type {
+  display: flex;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #ccc;
+}
+form#register_form fieldset:has(input:valid:not(:placeholder-shown)):not(:last-of-type) input {
+  background-color: #b0ffb0;
+}
+form#register_form fieldset:nth-of-type(5),
+form#register_form fieldset:nth-of-type(6) {
+  display: grid;
+}
+form#register_form fieldset:nth-of-type(5) p,
+form#register_form fieldset:nth-of-type(6) p {
+  font-size: 0.5em;
+  font-style: italic;
+  opacity: 0.5;
+  margin: 0.4em 0;
+}
+form#register_form fieldset:nth-of-type(5) p.error-text,
+form#register_form fieldset:nth-of-type(6) p.error-text {
+  display: none;
+  opacity: 1;
+  color: red;
+  font-style: italic;
+}
+form#register_form .form-field-required label {
+  position: relative;
+}
+form#register_form .form-field-required label::after {
+  content: "*";
+  color: red;
+  position: absolute;
+  top: -4px;
+  padding-left: 5px;
+}
+form#register_form .form-field-required.invalid input {
+  border: 2px solid red;
+}
+form#register_form .form-field-required.invalid input::placeholder {
+  color: red;
+  font-style: italic;
+}
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+body ul {
+  list-style: none;
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+body p {
+  font-size: 1.2em;
+}
+body .btn {
+  display: block;
+  width: 100%;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  border: none;
+  background-color: skyblue;
+  cursor: pointer;
+}
+body .btn:focus-visible {
+  background-color: #1B649C !important;
+}
+body .btn:hover {
+  background-color: #0dd8e6 !important;
+}
+body .btn:active {
+  background-color: #0d35e6 !important;
+}
+body .btn.back {
+  width: 100%;
+  height: 1.8em;
+  text-align: center;
+  font-size: 0.7em;
+  line-height: 0.8em;
+  border: 2px solid #2E9BD8;
+}
+
+header.start_header {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  max-height: 5em;
+  padding: 1em;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+main article {
+  max-width: 60%;
+}
+main article p {
+  margin-top: 1em;
+}
+main article .btn {
+  margin-top: 2em;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=style.css.map */

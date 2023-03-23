@@ -1,0 +1,28 @@
+<%- include('../partials/header'); %>
+
+    <main>
+
+        <div class="form_indicator">
+            <span>0</span>
+            <span>0</span>
+            <span>0</span>
+            <span>0</span>
+            <span>0</span>
+        </div>
+
+        <% switch (pageType) { 
+            case 'p1' : %>
+                <%- include('../partials/wafs/p1'); %>
+                <% break;
+
+            case 'p2' : %>
+                <%- include('../partials/wafs/p2'); %>
+                <% break; 
+                    
+            default : %>
+                <%- include('../partials/wafs/p1'); %>
+        
+        <% } %>
+        
+    </main>
+    <%- include('../partials/footer'); %>

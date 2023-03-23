@@ -1,0 +1,87 @@
+form {
+    width: 100%;
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    background-color: #e7e7e7;
+
+    input[type=text],
+    input[type=number],
+    input[type=email] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    fieldset {
+        &:first-of-type {
+            display: flex;
+            padding: 1em;
+            margin-bottom: 2em;
+            border-bottom: 1px solid #ccc;
+        }
+
+        border: none;
+        margin-top: 1em;
+    }
+
+
+
+   &#register_form {
+
+        fieldset:has(input:valid:not(:placeholder-shown)):not(:last-of-type) input {
+            background-color: #b0ffb0;
+        }
+
+        fieldset:nth-of-type(5),
+        fieldset:nth-of-type(6) {
+            display: grid;
+
+            p {
+                font-size: .5em;
+                font-style: italic;
+                opacity: .5;
+                margin: .4em 0;
+
+                &.error-text {
+                    display: none;
+                    opacity: 1;
+                    color: red;
+                    font-style: italic;
+                }
+            }
+        }
+
+        .form-field-required {
+            label {
+                position: relative;
+            }
+
+            label::after {
+                content: "*";
+                color: color(indicator);
+                position: absolute;
+                top: -4px;
+                padding-left: 5px;
+            }
+
+            &.invalid {
+                input {
+                    border: 2px solid red;
+
+                    &::placeholder {
+                        color: red;
+                        font-style: italic;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+}

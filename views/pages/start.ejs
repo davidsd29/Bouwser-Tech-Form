@@ -1,0 +1,35 @@
+<%- include('../partials/header'); %>
+
+    <main>
+        <form action="/register" id="register_form">
+
+            <fieldset>
+                <h1>Registration</h1>
+                <img src="img/logo.png" alt="Goodie Foodie logo">
+            </fieldset>
+
+            <fieldset class="form-field form-field-required">
+                <label for="first_name">Voornaam</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Uw voornaam.." required>
+            </fieldset>
+
+            <fieldset class="form-field form-field-required">
+                <label for="surname">Acternaam</label>
+                <input type="text" id="surname" name="surname" placeholder="Uw achternaam.." required>
+            </fieldset>
+
+            <fieldset class="form-field form-field-required">
+                <label for="student_nmbr">Studentennummer</label>
+                <input type="number" name="student_nmbr" id="student_nmbr" placeholder="Uw studentennummer.." required>
+            </fieldset>
+
+            <fieldset class="form-field form-field-required">
+                <label for="email"> E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Uw e-mail.." required>
+            </fieldset>
+
+            <input type="submit" class="btn" value="Submit">
+        </form>
+    </main>
+
+<%- include('../partials/footer'); %>
