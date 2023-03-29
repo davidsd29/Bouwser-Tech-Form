@@ -4,11 +4,22 @@ import { awnsers } from '../data/awnser.js'
 const form = express.Router();
 
 form
+    .get('/', (req, res) => {
+        const pageType = 'p1';
+        const subject = 'cttr';
+        const title = 'CSS to the rescue';
+        res.render('pages/form', {
+            pageType,
+            subject,
+            title
+        });
+    })
+    
     .post('/p1', (req, res) => {
         const objIndex = awnsers.findIndex((obj => obj.pageNumber == 1));
         const obj = { 
-            pageNumber: 1,
-            subject: 'wafs',
+            pageNumber: 3,
+            subject: 'cttr',
             professor: req.body.professor,
             weeks: req.body.weeks,
             teaching: req.body.teaching,
@@ -17,8 +28,8 @@ form
         awnsers.push(obj)
         
         const pageType = 'p2';
-        const subject = 'wafs';
-        const title = 'Web app from scratch';
+        const subject = 'cttr';
+        const title = 'CSS to the rescue';
         res.render('pages/form', {
             pageType,
             subject,
@@ -30,8 +41,8 @@ form
         const objIndex = awnsers.findIndex((obj => obj.pageNumber == 2));
         
         const obj = { 
-            pageNumber: 2,
-            subject: 'wafs',
+            pageNumber: 4,
+            subject: 'cttr',
             grading: req.body.grading,
             difficulty: req.body.difficulty,
             insight: req.body.insight,
@@ -40,9 +51,9 @@ form
 
         awnsers.push(obj);
 
-        const currentSubject = 'Web app from scratch';
-        const nextSubject = 'CSS to the rescue';
-        const subject = 'cttr';
+        const currentSubject = 'CSS to the rescue';
+        const nextSubject = 'Browser Technologies';
+        const subject = 'bt';
 
         console.log(awnsers)
         res.render('pages/break', {

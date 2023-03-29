@@ -3,43 +3,17 @@ const index =  (req, res) => {
 }
 
 const start =  (req, res) => {
-    res.render("pages/start")
+    res.render("pages/register")
 }
 
-const pause =  (req, res) => {
-    const subject = req.params.vak;
-    res.render("pages/break", {
-            subject
-    })
+const done =  (req, res) => {
+    res.render("pages/done")
 }
 
-const brouwserT =  (req, res) => {
-    const pageType = "brouwserT";
-    res.render("pages/form", {
-       pageType
-    })
-}
 
-const css =  (req, res) => {
-    const pageType = "css";
-
-    res.render("pages/form", {
-       pageType
-    })
-}
-
-const pwa =  (req, res) => {
-    const pageType = "pwa";
-    res.render("pages/form", {
-       pageType,
-    })
-}
 
 export {
-    css,
-    pwa,
     start,
-    pause,
+    done,
     index,
-    brouwserT,
 }

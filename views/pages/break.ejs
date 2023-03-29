@@ -1,17 +1,19 @@
 <%- include('../partials/header'); %>
 
     <main>
+        <section class="heading">
+            <h1>Minor: Web Design & Development Enquete</h1>
+            <img src="img/logo2.png" alt="HvA logo">
+        </section>
         <article>
-            <h1>Lekker bezig <span id="user_name"></span>!</h1>
+            <h2>Lekker bezig <span id="user_name"></span>!</h2>
             <p> 
-                je hebt de vragen voor vak <%= subject %> succesvol afgerond Op naar de volgende
-
-
+                Je hebt de vragen voor vak <%= currentSubject %> succesvol afgerond Op naar de volgende vak <%= nextSubject %>.
             </p>
-            nog 3 vakken te gaan
+           
 
 
-            <a href="/ctr" class="btn">Start Enquete voor css</a>
+            <a href="/<%= subject %>" class="btn">Start Enquete voor <%= nextSubject %></a>
         </article>
     </main>
 

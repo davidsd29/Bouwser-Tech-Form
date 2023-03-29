@@ -4,6 +4,7 @@ body {
     place-items: center;
     height: 100vh;
 
+
     ul {
         list-style: none;
     }
@@ -20,36 +21,42 @@ body {
     .btn {
         display: block;
         width: 100%;
-        padding: 0.5em 1em;
-        color: color(secondary);
-        border-radius: 1em;
+        padding: 0.75em 1.875em;
+        color: color(base);
+        border-radius: .3em;
         border: none;
-        background-color: skyblue;
+        background-color: color(button);
         cursor: pointer;
-
-        &:focus-visible {
-            background-color: color(focus) !important;
-        }
-
-        &:hover {
-            background-color: color(hover) !important;
-        }
-
-        &:active {
-            background-color: color(active) !important;
-        }
 
         &.back {
             width: 100%;
-            height: 1.8em;
+            height: inherit;
             text-align: center;
-            font-size: .7em;
-            line-height: .8em;
-
+            font-size: .9em;
+            line-height: 1em;
+            color: color(button);
             border: 2px solid color(button);
-            background-color: color(quaternary);
+            background-color: color(base);  
         }
     }
+}
+
+.btn, .back {
+    &:focus-visible {
+        color: color(base) !important;
+        background-color: color(focus) !important;
+    }
+
+    &:hover {
+        color: color(base) !important;
+        background-color: color(hover) !important;
+    }
+
+    &:active {
+        color: color(base) !important;
+        background-color: color(active) !important;
+    }
+
 }
 
 header {
@@ -58,15 +65,24 @@ header {
         position: absolute;
         top: 0;
         display: flex;
-        justify-content: center;
-        max-height: 5em;
-        padding: 1em;
+        justify-content: space-between;
+        align-items: center;
+        max-height: 10em;
+        padding: 1em 2em;
         width: 100%;
+
+        a {
+            width: 20em;
+            img {
+                width: 100%;
+            }
+        }
     }
 }
+
 main {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
     article {
         max-width: 60%;
@@ -80,6 +96,41 @@ main {
         }
     }
 
+    .heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        margin-bottom: 2em;
+        border-bottom: 1px solid #ccc;
+
+        img {
+            width: 20%;
+        }
+    }
+
+    .options {
+        display: flex;
+        gap: 2em;
+        max-width: 20em;
+    }
+
+    .form_indicator {
+        span {
+            display: inline-block;
+            width: 3em;
+            margin: 1em .5em;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            box-shadow: inset 0 0 1em #3c23cb;
+            
+            &.rounded_up {
+                background:radial-gradient(closest-side circle, #6b56e7, color(button) 70%, color(active));
+                box-shadow: 0 0 1em color(button);
+            }
+        }
+    }
+
 }
 
 
@@ -90,4 +141,17 @@ footer {
     justify-content: space-between;
     width: 100%;
     padding: 1em;
+}
+
+.result_404 {
+    text-align: center;
+
+    h1 {
+        font-size: 10em;
+    }
+
+    p {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
 }

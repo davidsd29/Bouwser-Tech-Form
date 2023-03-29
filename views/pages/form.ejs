@@ -2,25 +2,24 @@
 
     <main>
 
-        <div class="form_indicator">
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
-            <span>0</span>
+        <div class="form_indicator hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
         <% switch (pageType) { 
             case 'p1' : %>
-                <%- include('../partials/wafs/p1'); %>
+                <%- include('../partials/p1'); %>
                 <% break;
 
             case 'p2' : %>
-                <%- include('../partials/wafs/p2'); %>
+                <%- include('../partials/p2'); %>
                 <% break; 
                     
             default : %>
-                <%- include('../partials/wafs/p1'); %>
+                <%- include('../404'); %>
         
         <% } %>
         

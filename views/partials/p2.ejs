@@ -1,0 +1,65 @@
+
+<form action="/<%= subject %>/p2" method="POST" class="questions">
+    <h1><%= title %></h1>
+        
+        <fieldset class="required">
+            <p>Hoe was de uitleg omtrent het vak ?</p>
+            <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+
+            <div>
+                <label tabindex="0"><input type="radio" name="grading" value="1">1</label>
+                <label tabindex="0"><input type="radio" name="grading" value="2">2</label>
+                <label tabindex="0"><input type="radio" name="grading" value="3">3</label>
+                <label tabindex="0"><input type="radio" name="grading" value="4">4</label>
+                <label tabindex="0"><input type="radio" name="grading" value="5">5</label>
+                <label tabindex="0"><input type="radio" name="grading" value="6">6</label>
+                <label tabindex="0"><input type="radio" name="grading" value="7">7</label>
+                <label tabindex="0"><input type="radio" name="grading" value="8">8</label>
+                <label tabindex="0"><input type="radio" name="grading" value="9">9</label>
+                <label tabindex="0"><input type="radio" name="grading" value="10">10</label>
+            </div>
+        </fieldset>
+        
+        <fieldset class="required">
+            <p>Hoe lastig is de lesstof ?</p>
+            <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+
+            <div>
+                <label tabindex="0"><input type="radio" name="difficulty" value="1">1</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="2">2</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="3">3</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="4">4</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="5">5</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="6">6</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="7">7</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="8">8</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="9">9</label>
+                <label tabindex="0"><input type="radio" name="difficulty" value="10">10</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="required">
+            <p>Hoe goed snap je het ?</p>
+            <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+            <div>
+                <label tabindex="0"><input type="radio" name="insight" value="1" />1</label>
+                <label tabindex="0"><input type="radio" name="insight" value="2" />2</label>
+                <label tabindex="0"><input type="radio" name="insight" value="3" />3</label>
+                <label tabindex="0"><input type="radio" name="insight" value="4" />4</label>
+                <label tabindex="0"><input type="radio" name="insight" value="5" />5</label>
+                <label tabindex="0"><input type="radio" name="insight" value="6" />6</label>
+                <label tabindex="0"><input type="radio" name="insight" value="7" />7</label>
+                <label tabindex="0"><input type="radio" name="insight" value="8" />8</label>
+                <label tabindex="0"><input type="radio" name="insight" value="9" />9</label>
+                <label tabindex="0"><input type="radio" name="insight" value="10" />10</label>
+            </div>
+        </fieldset>
+
+        <label for="feedback">Heb je nog iets dat je kwijt wilt over het vak ?</label>
+        <textarea name="feedback" id="feedback" cols="30" rows="10" placeholder="Wat wil je zeggen?"></textarea>
+        
+        <fieldset class="options">
+            <a href="<%= subject %>/p1/back" class="btn back">Back</a>
+            <input type="submit" class="btn" value="Submit">
+        </fieldset>
+</form>

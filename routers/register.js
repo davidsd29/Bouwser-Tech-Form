@@ -21,9 +21,13 @@ form.get('/', (req, res) => {
 
     if (userIsValid) users.push(student)
     
-    const pageType = "p1";
-    res.render("pages/wafs", {
-        pageType
+    const pageType = 'p1';
+    const subject = 'wafs';
+    const title = 'Web app from scratch';
+    res.render('pages/form', {
+        pageType,
+        subject,
+        title
     });
 });
 

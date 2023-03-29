@@ -1,75 +1,141 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
 form {
   width: 100%;
   padding: 2em;
   border-radius: 1em;
   border: 1px solid #ccc;
-  background-color: #e7e7e7;
+  box-shadow: 0 0 1em #1e1e1e;
+  max-width: 62.5em;
 }
 form input[type=text],
 form input[type=number],
-form input[type=email] {
+form input[type=email],
+form textarea {
   width: 100%;
-  padding: 12px 20px;
+  padding: 0.8em 1.2em;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
+}
+form input[type=text]::placeholder,
+form input[type=number]::placeholder,
+form input[type=email]::placeholder,
+form textarea::placeholder {
+  font-style: italic;
 }
 form fieldset {
   border: none;
   margin-top: 1em;
 }
-form fieldset:first-of-type {
-  display: flex;
-  padding: 1em;
-  margin-bottom: 2em;
-  border-bottom: 1px solid #ccc;
-}
 form#register_form fieldset:has(input:valid:not(:placeholder-shown)):not(:last-of-type) input {
   background-color: #b0ffb0;
 }
-form#register_form fieldset:nth-of-type(5),
-form#register_form fieldset:nth-of-type(6) {
+form#register_form fieldset:nth-of-type(5) {
   display: grid;
 }
-form#register_form fieldset:nth-of-type(5) p,
-form#register_form fieldset:nth-of-type(6) p {
+form#register_form fieldset:nth-of-type(5) p {
   font-size: 0.5em;
   font-style: italic;
   opacity: 0.5;
   margin: 0.4em 0;
 }
-form#register_form fieldset:nth-of-type(5) p.error-text,
-form#register_form fieldset:nth-of-type(6) p.error-text {
+form#register_form fieldset:nth-of-type(5) p.error-text {
   display: none;
   opacity: 1;
   color: red;
   font-style: italic;
 }
-form#register_form .form-field-required label {
+form#register_form fieldset.form-field-required label {
   position: relative;
 }
-form#register_form .form-field-required label::after {
+form#register_form fieldset.form-field-required label::after {
   content: "*";
   color: red;
   position: absolute;
   top: -4px;
   padding-left: 5px;
 }
-form#register_form .form-field-required.invalid input {
+form#register_form fieldset.form-field-required.invalid input {
   border: 2px solid red;
 }
-form#register_form .form-field-required.invalid input::placeholder {
+form#register_form fieldset.form-field-required.invalid input::placeholder {
   color: red;
   font-style: italic;
+}
+form.questions {
+  font-size: 1em;
+  display: grid;
+}
+form.questions h1 {
+  margin-bottom: 1em;
+}
+form.questions:has(input[name=professor]:valid:not(:placeholder-shown)) input[name=professor] {
+  background-color: #b0ffb0;
+}
+form.questions fieldset {
+  display: grid;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+form.questions fieldset.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  border: none;
+}
+form.questions fieldset.options a {
+  height: 2em;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 0.8em;
+}
+form.questions fieldset.start label {
+  margin-bottom: 0.5em;
+}
+form.questions fieldset p {
+  margin-bottom: 0.5em;
+}
+form.questions fieldset label:not(.start label) {
+  display: inline-block;
+  margin: 0 0.5em 1em;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 1s;
+}
+form.questions fieldset label:not(.start label):hover {
+  font-size: 0.8em;
+  color: darkblue;
+}
+form.questions fieldset label:not(.start label):focus-visible {
+  color: darkorchid;
+  outline-color: darkorchid;
+}
+form.questions fieldset label:not(.start label):has(input:checked) {
+  box-shadow: inset 0 0 0.5em #25167a;
+}
+form.questions fieldset label:not(.start label) input {
+  display: none;
+}
+form.questions fieldset.required p, form.questions fieldset.required.start label {
+  position: relative;
+}
+form.questions fieldset.required p::after, form.questions fieldset.required.start label::after {
+  content: "*";
+  position: absolute;
+  top: -4px;
+  padding-left: 5px;
+  color: red;
+}
+form.questions fieldset.required span {
+  color: red;
+  font-style: italic;
+  font-size: 0.8em;
+}
+form.questions label[for=feedback] {
+  margin: 1em 0;
 }
 
 body {
@@ -91,43 +157,57 @@ body p {
 body .btn {
   display: block;
   width: 100%;
-  padding: 0.5em 1em;
-  border-radius: 1em;
+  padding: 0.75em 1.875em;
+  color: #FFF;
+  border-radius: 0.3em;
   border: none;
-  background-color: skyblue;
+  background-color: #25167a;
   cursor: pointer;
-}
-body .btn:focus-visible {
-  background-color: #1B649C !important;
-}
-body .btn:hover {
-  background-color: #0dd8e6 !important;
-}
-body .btn:active {
-  background-color: #0d35e6 !important;
 }
 body .btn.back {
   width: 100%;
-  height: 1.8em;
+  height: inherit;
   text-align: center;
-  font-size: 0.7em;
-  line-height: 0.8em;
-  border: 2px solid #2E9BD8;
+  font-size: 0.9em;
+  line-height: 1em;
+  color: #25167a;
+  border: 2px solid #25167a;
+  background-color: #FFF;
+}
+
+.btn:focus-visible, .back:focus-visible {
+  color: #FFF !important;
+  background-color: #09003c !important;
+}
+.btn:hover, .back:hover {
+  color: #FFF !important;
+  background-color: #331eab !important;
+}
+.btn:active, .back:active {
+  color: #FFF !important;
+  background-color: #150d42 !important;
 }
 
 header.start_header {
   position: absolute;
   top: 0;
   display: flex;
-  justify-content: center;
-  max-height: 5em;
-  padding: 1em;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 10em;
+  padding: 1em 2em;
+  width: 100%;
+}
+header.start_header a {
+  width: 20em;
+}
+header.start_header a img {
   width: 100%;
 }
 
 main {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 main article {
   max-width: 60%;
@@ -138,6 +218,34 @@ main article p {
 main article .btn {
   margin-top: 2em;
 }
+main .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #ccc;
+}
+main .heading img {
+  width: 20%;
+}
+main .options {
+  display: flex;
+  gap: 2em;
+  max-width: 20em;
+}
+main .form_indicator span {
+  display: inline-block;
+  width: 3em;
+  margin: 1em 0.5em;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1em #3c23cb;
+}
+main .form_indicator span.rounded_up {
+  background: radial-gradient(closest-side circle, #6b56e7, #25167a 70%, #150d42);
+  box-shadow: 0 0 1em #25167a;
+}
 
 footer {
   position: absolute;
@@ -146,6 +254,27 @@ footer {
   justify-content: space-between;
   width: 100%;
   padding: 1em;
+}
+
+.result_404 {
+  text-align: center;
+}
+.result_404 h1 {
+  font-size: 10em;
+}
+.result_404 p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=style.css.map */
