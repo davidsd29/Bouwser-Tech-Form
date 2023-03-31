@@ -82,6 +82,12 @@ form {
         
         h1 {
             margin-bottom: 1em;
+
+			@include respond-to(up-to-sm) {
+				margin-top: 3em;
+				font-weight: bold;
+				font-size: 1em;
+			}
         }
 
 		label[for=feedback] {

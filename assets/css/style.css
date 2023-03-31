@@ -76,6 +76,13 @@ form.questions {
 form.questions h1 {
   margin-bottom: 1em;
 }
+@media screen and (max-width: 767px) {
+  form.questions h1 {
+    margin-top: 3em;
+    font-weight: bold;
+    font-size: 1em;
+  }
+}
 form.questions label[for=feedback] {
   margin-top: 1em;
 }
@@ -146,6 +153,9 @@ body {
   place-items: center;
   height: 100vh;
 }
+body:has(.open) main {
+  filter: blur(7px);
+}
 body ul {
   list-style: none;
 }
@@ -215,7 +225,13 @@ header.start_header a img {
   width: 50%;
 }
 header.start_header h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
+  transition: 2s;
+}
+@media screen and (max-width: 767px) {
+  header.start_header h1 {
+    font-size: 0.9em;
+  }
 }
 
 .hidden {
@@ -229,6 +245,12 @@ main {
 }
 main article {
   max-width: 60%;
+}
+@media screen and (max-width: 767px) {
+  main article {
+    max-width: 100%;
+    padding: 1em;
+  }
 }
 main article p {
   margin-top: 1em;
@@ -288,6 +310,32 @@ main .break a:last-of-type {
   width: 65em;
 }
 
+.popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-content: center;
+  width: 70%;
+  height: 10em;
+  padding: 1em;
+  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  border-top: 4px solid #25167a;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: all 0.3s;
+  z-index: 10;
+}
+.popUp.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 footer {
   position: absolute;
   bottom: 0vh;
@@ -295,6 +343,16 @@ footer {
   justify-content: space-between;
   width: 100%;
   padding: 0.5em 2em;
+  font-size: 1em;
+  transition: 2s;
+}
+@media screen and (max-width: 767px) {
+  footer {
+    font-size: 0.6em;
+  }
+  footer p:nth-of-type(2) {
+    display: none;
+  }
 }
 
 .result_404 {

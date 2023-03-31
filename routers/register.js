@@ -20,11 +20,8 @@ form
         };
 
         console.log(student) 
-
-
-        const userIsValid = ValidateUser(student);
-
-        if (userIsValid) users.push(student)
+        users.push(student)
+        
         res.render('pages/index');
     })
 

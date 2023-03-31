@@ -1,18 +1,19 @@
-import {SaveUser} from '../saving/storage-user.js';
-
 const registerForm = {
+    form: document.getElementById('register_form'),
     formFields: document.querySelectorAll(".form-field"),
     name: document.getElementById("first_name"),
-    surname: document.getElementById("surname"),
     student_nmbr: document.getElementById("student_nmbr"),
     email: document.getElementById("email"),
-    submit: document.querySelector("#register sumbit")
+    submit: document.querySelector("#register_form sumbit")
 }
+
+const popup = document.querySelector('.popUp')
 
 const data = {}
 let validRegistration = false;
 let errorMessage;
 let emailErrorMessage;
+
 
 function CheckRegister(event) {
     event.preventDefault();
@@ -23,14 +24,20 @@ function CheckRegister(event) {
             name = input.name, //name of the input type
             value = input.value;
 
-            input.removeAttribute("required")
             errorResponse(name, value, field)
 
         data[name] = value
     });
 
     if (validRegistration) {
-        SaveUser(data);
+        popup.classList.add('open');
+        
+        setTimeout(() => {
+            popup.classList.remove('open');
+            registerForm.form.submit();
+            window.location.href = '/';
+        }, 2000);
+
     } else {
         console.log("registration is not valid");
     }
@@ -39,26 +46,15 @@ function CheckRegister(event) {
 
 function ValidateEmail(input) {
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-    if (input.match(validRegex) && input !== "") {
-
-        // Check if email already exist
-        if (users.length !== 0) {
-            users.forEach(user => {
-                if (input === user.email){
-                    emailErrorMessage = "Email already exist, please try another one.";
-                    return false;
-
-                } else return true;
-            });
-        } 
-        
+    if(input === "") return
+    if (input.match(validRegex)) {  
+        return true;
     } else {
-        emailErrorMessage = "E-mail adress is not valid, check for the @ or try again.";
+        emailErrorMessage = "E-mail is incorrect, kijk even als alles klopt";
         return false;
     }
 }
+
 
 function errorResponse(inputName, inputValue, required) {
 
@@ -67,31 +63,17 @@ function errorResponse(inputName, inputValue, required) {
             if (inputValue === "") {
                 validRegistration = false;
                 required.classList.add("invalid");
-                let message = GetErrorMessage("firstname");
-                document.getElementsByName('name').placeholder = message;
+                let message = GetErrorMessage("first_name");
+                document.getElementsByName('first_name')[0].placeholder = message;
 
             } else {
-                validRegistration = true;
-                required.classList.remove("invalid");
-            }
-            break;
-
-        case "surname":
-            if (inputValue === "") {
-                validRegistration = false;
-                required.classList.add("invalid");
-                let message = GetErrorMessage("surname");
-                document.getElementsByName('surname').placeholder = message;
-                
-            } else {
-                validRegistration = true;
                 required.classList.remove("invalid");
             }
             break;
 
         case "email":
             let validEmail = ValidateEmail(inputValue);
-            let errorEmailInput = document.getElementById('error-email');
+            let errorEmailInput = document.querySelector('.form-field span');
             
             if (inputValue === "" || (!validEmail)) {
 
@@ -100,15 +82,16 @@ function errorResponse(inputName, inputValue, required) {
                 validRegistration = false;
                 required.classList.add("invalid");
 
-                if (!validEmail) {
-                    errorEmailInput.style.display = "block";
-                    errorEmailInput.textContent = emailErrorMessage;
-                } else {
-                    errorEmailInput.textContent = message;
+                if (inputValue === "") {
+                    document.getElementsByName('email')[0].placeholder = message;
                 }
 
+                if (!validEmail) {
+                    errorEmailInput.classList.remove('hidden');
+                    errorEmailInput.textContent = emailErrorMessage;
+                } 
+
             } else {
-                validRegistration = true;
                 required.classList.remove("invalid");
                 errorEmailInput.style.display = "none";
             }
@@ -118,14 +101,12 @@ function errorResponse(inputName, inputValue, required) {
             if (inputValue === "") {
                 validRegistration = false;
                 required.classList.add("invalid");
-                let message = GetErrorMessage("surname");
-                document.getElementsByName('surname').placeholder = message;
+                let message = GetErrorMessage("student_nmbr");
+                document.getElementsByName('student_nmbr')[0].placeholder = message;
                 
             } else {
-                validRegistration = true;
                 required.classList.remove("invalid");
             }
-            
             break;
 
         default:
@@ -136,20 +117,20 @@ function errorResponse(inputName, inputValue, required) {
 
 function GetErrorMessage(key){
     switch(key) {
-        case 'firstname':
-            errorMessage = 'Entry of first name is required';
-            break;    
-        case 'surname':
-            errorMessage = 'Entry of surname is required';
+        case 'first_name':
+            errorMessage = 'Invoer van voornaam is vereist';
+            break;  
+        case 'student_nmbr':
+            errorMessage = 'Invoer van studenten nummer is vereist';
             break;
         case 'email':
-            errorMessage = 'Entry of e-mail is required';
+            errorMessage = 'Invoer van email is vereist';
             break;
 
         default:
             errorMessage = "";         
     }
-
     return errorMessage; // The value of the array is been send back in to the errorMessage variable
 }
-export { CheckRegister }
+
+export default CheckRegister;

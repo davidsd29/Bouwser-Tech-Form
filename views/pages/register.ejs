@@ -1,16 +1,20 @@
 <%- include('../partials/header'); %>
 
+    <div class="popUp">
+        <p>Gegevens succesvol opgeslagen, dank je wel voor je deelname!</p>
+    </div>
+
     <main>
-        <form action="/<>" id="register_form">
+        <form action="/register" id="register_form">
 
             <fieldset class="form-field form-field-required">
                 <label for="first_name">Voornaam</label>
                 <input type="text" id="first_name" name="first_name" placeholder="Uw voornaam.." required>
             </fieldset>
 
-            <fieldset class="form-field form-field-required">
+            <fieldset class="form-field">
                 <label for="surname">Acternaam</label>
-                <input type="text" id="surname" name="surname" placeholder="Uw achternaam.." required>
+                <input type="text" id="surname" name="surname" placeholder="Uw achternaam..">
             </fieldset>
 
             <fieldset class="form-field form-field-required">
@@ -19,7 +23,7 @@
             </fieldset>
 
             <fieldset class="form-field form-field-required">
-		        <span class="hidden">E-mail is incorrect, kijk even als alles klopt</span>
+		        <span class="hidden"></span>
                 <label for="email"> E-mail</label>
                 <input type="email" name="email" id="email" placeholder="Uw e-mail.." required>
             </fieldset>
