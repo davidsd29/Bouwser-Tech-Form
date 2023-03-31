@@ -1,10 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 form {
   width: 100%;
   padding: 2em;
-  border-radius: 1em;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 1em #1e1e1e;
-  max-width: 62.5em;
+  max-width: 55.5em;
 }
 form input[type=text],
 form input[type=number],
@@ -69,8 +76,8 @@ form.questions {
 form.questions h1 {
   margin-bottom: 1em;
 }
-form.questions:has(input[name=professor]:valid:not(:placeholder-shown)) input[name=professor] {
-  background-color: #b0ffb0;
+form.questions label[for=feedback] {
+  margin-top: 1em;
 }
 form.questions fieldset {
   display: grid;
@@ -82,21 +89,19 @@ form.questions fieldset.options {
   justify-content: space-between;
   align-items: center;
   gap: 2em;
+  margin-top: 1em;
   border: none;
 }
 form.questions fieldset.options a {
-  height: 2em;
+  height: inherit;
   text-align: center;
   font-size: 0.9em;
   line-height: 0.8em;
 }
-form.questions fieldset.start label {
-  margin-bottom: 0.5em;
-}
 form.questions fieldset p {
   margin-bottom: 0.5em;
 }
-form.questions fieldset label:not(.start label) {
+form.questions fieldset label:not(label[for=feedback]) {
   display: inline-block;
   margin: 0 0.5em 1em;
   padding: 0.5em;
@@ -105,18 +110,18 @@ form.questions fieldset label:not(.start label) {
   border-radius: 50%;
   transition: 1s;
 }
-form.questions fieldset label:not(.start label):hover {
+form.questions fieldset label:not(label[for=feedback]):hover {
   font-size: 0.8em;
   color: darkblue;
 }
-form.questions fieldset label:not(.start label):focus-visible {
+form.questions fieldset label:not(label[for=feedback]):focus-visible {
   color: darkorchid;
   outline-color: darkorchid;
 }
-form.questions fieldset label:not(.start label):has(input:checked) {
+form.questions fieldset label:not(label[for=feedback]):has(input:checked) {
   box-shadow: inset 0 0 0.5em #25167a;
 }
-form.questions fieldset label:not(.start label) input {
+form.questions fieldset label:not(label[for=feedback]) input {
   display: none;
 }
 form.questions fieldset.required p, form.questions fieldset.required.start label {
@@ -134,9 +139,6 @@ form.questions fieldset.required span {
   font-style: italic;
   font-size: 0.8em;
 }
-form.questions label[for=feedback] {
-  margin: 1em 0;
-}
 
 body {
   position: relative;
@@ -150,6 +152,14 @@ body ul {
 body a {
   text-decoration: none;
   color: inherit;
+}
+body a#link {
+  color: #25167a;
+  text-underline-offset: 0.3em;
+  text-decoration: underline;
+}
+body a#link:hover {
+  color: #331eab;
 }
 body p {
   font-size: 1.2em;
@@ -194,7 +204,7 @@ header.start_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 10em;
+  max-height: 5em;
   padding: 1em 2em;
   width: 100%;
 }
@@ -202,11 +212,19 @@ header.start_header a {
   width: 20em;
 }
 header.start_header a img {
-  width: 100%;
+  width: 50%;
+}
+header.start_header h1 {
+  font-size: 1.5em;
+}
+
+.hidden {
+  display: none !important;
 }
 
 main {
-  display: grid;
+  display: flex;
+  justify-content: center;
   place-items: center;
 }
 main article {
@@ -222,7 +240,9 @@ main .heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 4em;
   padding: 1em;
+  margin-top: 0;
   margin-bottom: 2em;
   border-bottom: 1px solid #ccc;
 }
@@ -233,6 +253,10 @@ main .options {
   display: flex;
   gap: 2em;
   max-width: 20em;
+}
+main .form_indicator {
+  display: grid;
+  margin-right: 4em;
 }
 main .form_indicator span {
   display: inline-block;
@@ -246,14 +270,31 @@ main .form_indicator span.rounded_up {
   background: radial-gradient(closest-side circle, #6b56e7, #25167a 70%, #150d42);
   box-shadow: 0 0 1em #25167a;
 }
+main .break {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  height: 2.5em;
+}
+main .break a {
+  width: 100%;
+}
+main .break a:last-of-type {
+  height: inherit;
+  height: inherit;
+  text-align: center;
+  line-height: 1em;
+  width: 65em;
+}
 
 footer {
   position: absolute;
-  bottom: 0;
+  bottom: 0vh;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 1em;
+  padding: 0.5em 2em;
 }
 
 .result_404 {
@@ -265,16 +306,6 @@ footer {
 .result_404 p {
   font-size: 1.5em;
   margin-bottom: 1em;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: #555;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
 }
 
 /*# sourceMappingURL=style.css.map */

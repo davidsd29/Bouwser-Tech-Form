@@ -1,20 +1,20 @@
 <%- include('../partials/header'); %>
 
-    <main>
-        <section class="heading">
-            <h1>Minor: Web Design & Development Enquete</h1>
-            <img src="img/logo2.png" alt="HvA logo">
-        </section>
-        <article>
-            <h2>Lekker bezig <span id="user_name"></span>!</h2>
-            <p> 
-                Je hebt de vragen voor vak <%= currentSubject %> succesvol afgerond Op naar de volgende vak <%= nextSubject %>.
-            </p>
-           
+<main>
+	<article>
+		<h2>Lekker bezig!</h2>
+		<p>
+			Je hebt de vragen voor vak <%= currentSubject %> succesvol afgerond Op
+			naar de volgende vak <%= nextSubject %>.
+		</p>
 
+		<p>Nog <%= subjectAmount %> te gaan</p>
 
-            <a href="/<%= subject %>" class="btn">Start Enquete voor <%= nextSubject %></a>
-        </article>
-    </main>
+		<div class="break">
+			<a href="/<%= currentSubjectShort %>/p2<%= query %>" class="btn back">Back</a>
+			<a href="/<%= subject %>/p1" class="btn">Start Enquete voor <%= nextSubject %></a>
+		</div>
+	</article>
+</main>
 
-    <%- include('../partials/footer'); %>
+<%- include('../partials/footer'); %>

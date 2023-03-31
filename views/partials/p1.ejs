@@ -1,49 +1,49 @@
+<form action="/<%= subject %>/p2" method="GET" class="questions">
+	<h1><%= title %></h1>
 
-<form action="<%= subject %>/p1" method="POST" class="questions">
-    <h1><%= title %></h1>
+	<fieldset class="required">
+		<p>Hoe was de uitleg omtrent het vak ?</p>
+		<span class="hidden"
+			>*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span
+		>
 
-    <fieldset class="required start">
-        <label for="professor">Van welke docent kreeg je dit vak?</label>
-        <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+		<div>
+			<% for(let i = 1; i < 11; i++ ) {%>
+                <label tabindex="0"
+                    ><input type="radio" name="teaching" value="<%= [i] %>" 
+                    <% if (values.teaching == [i] ) { %> checked <% }%> >
+                    <%= [i] %>
+                </label>
+			<% }%>
+		</div>
+	</fieldset>
 
-        <input type="text" id="professor" pattern="[a-zA-Z]+" name="professor" placeholder="Naam van je docent.." required>
-    </fieldset>
- 
-    <fieldset class="required">
-        <p>In hoeveel weken heb je dit vak gedaan ?</p>
-        <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+	<fieldset class="required">
+		<p>Hoe was de uitleg omtrent het vak ?</p>
+		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
 
-        <div>
-            <label tabindex="0"><input type="radio" name="weeks" value="1" />1</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="2" />2</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="3" />3</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="4" />4</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="5" />5</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="6" />6</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="7" />7</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="8" />8</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="9" />9</label>
-            <label tabindex="0"><input type="radio" name="weeks" value="10" />10</label>
-        </div>
-    </fieldset>   
-    
-    <fieldset class="required">
-        <p>Hoe was de uitleg omtrent het vak ?</p>
-        <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+		<div>
+            <% for(let i=1; i < 11; i++ ) {%>
+                <label tabindex="0"><input type="radio" name="grading" required value="<%= [i] %>" 
+                    <% if (values.grading == [i] ) { %> checked <% }%> >
+                    <%= [i] %>
+                </label>
+            <% }%>
+		</div>
+	</fieldset>
 
-        <div>
-            <label tabindex="0"><input type="radio" name="teaching" value="1">1</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="2">2</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="3">3</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="4">4</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="5">5</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="6">6</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="7">7</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="8">8</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="9">9</label>
-            <label tabindex="0"><input type="radio" name="teaching" value="10">10</label>
-        </div>
-    </fieldset>
+	<fieldset class="required">
+		<p>Hoe lastig is de lesstof ?</p>
+		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+            <div>
+                <% for(let i=1; i < 11; i++ ) {%>
+                    <label tabindex="0"><input type="radio" name="difficulty" required value="<%= [i] %>" 
+                        <% if (values.difficulty == [i] ) { %> checked <% }%> >
+                            <%= [i] %>
+                    </label>
+                    <% }%>
+            </div>
+	</fieldset>
 
-    <input type="submit" class="btn" value="Submit">
+	<input type="submit" class="btn" value="Volgende" />
 </form>

@@ -3,9 +3,16 @@ const index =  (req, res) => {
 }
 
 const start =  (req, res) => {
-    res.render("pages/register")
-}
+     const pageType = 'p1';
+    const subject = 'wafs';
+    const title = 'Web app from scratch';
+    res.render('pages/form', {
+        pageType,
+        subject,
+        title
+    });
 
+}
 const done =  (req, res) => {
     res.render("pages/done")
 }

@@ -1,12 +1,7 @@
 <%- include('../partials/header'); %>
 
     <main>
-        <form action="/register" id="register_form">
-
-            <fieldset class="heading">
-                <h1>Registration</h1>
-                <img src="img/logo2.png" alt="HvA logo">
-            </fieldset>
+        <form action="/<>" id="register_form">
 
             <fieldset class="form-field form-field-required">
                 <label for="first_name">Voornaam</label>
@@ -20,17 +15,18 @@
 
             <fieldset class="form-field form-field-required">
                 <label for="student_nmbr">Studentennummer</label>
-                <input type="number" name="student_nmbr" id="student_nmbr" placeholder="Uw studentennummer.." required>
+                <input type="text" name="student_nmbr" id="student_nmbr" inputmode="numeric" placeholder="Uw studentennummer.." required>
             </fieldset>
 
             <fieldset class="form-field form-field-required">
+		        <span class="hidden">E-mail is incorrect, kijk even als alles klopt</span>
                 <label for="email"> E-mail</label>
                 <input type="email" name="email" id="email" placeholder="Uw e-mail.." required>
             </fieldset>
 
             <fieldset class="options">
-                <input type="submit" class="btn" value="Submit">
-                <a href="/" class="btn back">Back</a>
+                <input type="submit" class="btn" value="Opslaan">
+                <a href="/klaar" class="btn back">Nee toch maar niet</a>
             </fieldset>
         </form>
     </main>

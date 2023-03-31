@@ -1,15 +1,12 @@
 form {
 	width: 100%;
 	padding: 2em;
-	border-radius: 1em;
-	border: 1px solid color(highlight);
-	box-shadow: 0 0 1em color(shadow);
-	max-width: 62.5em;
+	max-width: 55.5em;
 
 	input[type='text'],
 	input[type='number'],
 	input[type='email'],
-    textarea {
+	textarea {
 		width: 100%;
 		padding: .8em 1.2em;
 		margin: 8px 0;
@@ -29,9 +26,7 @@ form {
 
 	&#register_form {
 		fieldset {
-
 			
-
 			&:has(input:valid:not(:placeholder-shown)):not(:last-of-type) input {
 				background-color: #b0ffb0;
 			}
@@ -89,11 +84,9 @@ form {
             margin-bottom: 1em;
         }
 
-        &:has(input[name=professor]:valid:not(:placeholder-shown)) input[name=professor] {
-            background-color: color(valid);
-        }
-
-        
+		label[for=feedback] {
+			margin-top: 1em;
+		}
 
 		fieldset {
 			display: grid;
@@ -105,25 +98,22 @@ form {
                 justify-content: space-between;
                 align-items: center;
                 gap: 2em;
+				margin-top: 1em;
                 border: none;
 
                 a {
-                    height: 2em;
+                    height: inherit;
                     text-align: center;
                     font-size: .9em;
                     line-height: .8em;
                 }
             }
-
-			&.start label {
-				margin-bottom: .5em;
-			}
 			
             p {
 				margin-bottom: .5em;
 			}
 
-			label:not(.start label) {
+			label:not(label[for = feedback]) {
                 display: inline-block;
 				margin: 0 0.5em 1em;
 				padding: 0.5em;
@@ -173,9 +163,5 @@ form {
 				}
 			}
 		}
-
-        label[for=feedback] {
-            margin: 1em 0;
-        }
 	}
 }

@@ -12,6 +12,16 @@ body {
     a {
         text-decoration: none;
         color: inherit;
+
+        &#link {
+            color: color(button);
+            text-underline-offset: .3em;
+            text-decoration: underline;
+
+            &:hover {
+                color: color(hover);
+            }
+        }
     }
 
     p {
@@ -60,28 +70,36 @@ body {
 }
 
 header {
-
     &.start_header {
         position: absolute;
         top: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-height: 10em;
+        max-height: 5em;
         padding: 1em 2em;
         width: 100%;
 
         a {
             width: 20em;
             img {
-                width: 100%;
+                width: 50%;
             }
+        }
+
+        h1 {
+            font-size: 1.5em;
         }
     }
 }
 
+.hidden {
+    display: none !important;
+}
+
 main {
-    display: grid;
+    display: flex;
+    justify-content: center;
     place-items: center;
 
     article {
@@ -100,7 +118,9 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        height: 4em;
         padding: 1em;
+        margin-top: 0;
         margin-bottom: 2em;
         border-bottom: 1px solid #ccc;
 
@@ -116,6 +136,9 @@ main {
     }
 
     .form_indicator {
+        display: grid;
+        margin-right: 4em;
+        
         span {
             display: inline-block;
             width: 3em;
@@ -131,16 +154,36 @@ main {
         }
     }
 
+    .break {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        width: 100%;
+        height: 2.5em;
+
+        a {
+            width: 100%;
+
+            &:last-of-type {
+                height: inherit;
+                height: inherit;
+                text-align: center;
+                // font-size: .9em;
+                line-height: 1em;   
+                width: 65em;
+            }
+        }
+    }
 }
 
 
 footer {
     position: absolute;
-    bottom: 0;
+    bottom: 0vh;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 1em;
+    padding: .5em 2em;
 }
 
 .result_404 {
