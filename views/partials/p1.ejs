@@ -1,7 +1,7 @@
 <form action="/<%= subject %>/p2" method="GET" class="questions">
 	<h1><%= title %></h1>
 
-	<fieldset class="required">
+	<fieldset class="required_question">
 		<p>Hoe was de uitleg omtrent het vak ?</p>
 		<span class="hidden"
 			>*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span
@@ -11,14 +11,14 @@
 			<% for(let i = 1; i < 11; i++ ) {%>
                 <label tabindex="0"
                     ><input type="radio" name="teaching"  value="<%= [i] %>" 
-                    <% if (values.teaching == [i] ) { %> checked <% }%> required>
+                    <% if (values.teaching == [i] ) { %> checked <% }%> required >
                     <%= [i] %>
                 </label>
 			<% }%>
 		</div>
 	</fieldset>
 
-	<fieldset class="required">
+	<fieldset class="required_question">
 		<p>Hoe was de uitleg omtrent het vak ?</p>
 		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
 
@@ -32,7 +32,7 @@
 		</div>
 	</fieldset>
 
-	<fieldset class="required">
+	<fieldset class="required_question">
 		<p>Hoe lastig is de lesstof ?</p>
 		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
             <div>

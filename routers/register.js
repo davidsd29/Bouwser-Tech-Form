@@ -1,6 +1,6 @@
 import express from 'express';
 import { users } from '../data/user.js'
-import ValidateUser  from '../controllers/register.js'
+import { answers } from '../data/answer.js'
 
 
 const form = express.Router();
@@ -19,9 +19,9 @@ form
             email: req.query.email,
         };
 
-        console.log(student) 
         users.push(student)
-        
+        answers.splice(0,answers.length)
+
         res.render('pages/index');
     })
 

@@ -2,7 +2,7 @@
 <form action="/<%= subject %>/break" method="GET" class="questions">
     <h1><%= title %></h1>
         
-        <fieldset class="required">
+        <fieldset class="required_question">
             <p>Hoe goed snap je het vak?</p>
             <span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
 
@@ -21,7 +21,7 @@
         <textarea name="feedback" id="feedback" cols="30" rows="8" placeholder="Wat wil je zeggen?"><%= values.feedback %></textarea>
         
         <fieldset class="options">
-            <a href="/<%= subject %>/p1<%= query %>" class="btn back">Back</a>
+            <a <% if (query !== null ) { %> href="/<%= subject %>/p1<%= query %>" class="btn back" <% } else {%> class="btn disabled" <% }%> >Back</a>
             <input type="submit" class="btn" value="Volgende">
         </fieldset>
 </form>

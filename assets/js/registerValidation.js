@@ -7,7 +7,7 @@ const registerForm = {
     submit: document.querySelector("#register_form sumbit")
 }
 
-const popup = document.querySelector('.popUp')
+const popup = document.getElementById('complete')
 
 const data = {}
 let validRegistration = false;
@@ -31,6 +31,7 @@ function CheckRegister(event) {
 
     if (validRegistration) {
         popup.classList.add('open');
+        localStorage.clear();
         
         setTimeout(() => {
             popup.classList.remove('open');

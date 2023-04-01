@@ -1,26 +1,40 @@
+
+import { answers } from '../data/answer.js';
+
 const index =  (req, res) => {
-    res.render("pages/index")
+    if ( answers.length !== 0) {
+        const lastFilledArray = answers.slice(-1)
+        const values = lastFilledArray.reduce((obj) => obj)
+        console.log(values)
+        const pageType = values.pageNumber;
+        const subject = values.subject;
+        const title = values.title;
+        res.render('pages/form', {
+            pageType,
+            subject,
+            title,
+            query: null,
+            values
+        });
+    } else {
+        res.render("pages/index")
+    }
 }
 
-const start =  (req, res) => {
-     const pageType = 'p1';
-    const subject = 'wafs';
-    const title = 'Web app from scratch';
-    res.render('pages/form', {
-        pageType,
-        subject,
-        title
-    });
-
+const end =  (req, res) => {
+    answers.splice(0,answers.length)
+    res.redirect('/');
 }
+
 const done =  (req, res) => {
+    console.log(answers);
     res.render("pages/done")
 }
 
 
 
 export {
-    start,
+    end,
     done,
     index,
 }
