@@ -10,8 +10,8 @@
 		<div>
 			<% for(let i = 1; i < 11; i++ ) {%>
                 <label tabindex="0"
-                    ><input type="radio" name="teaching" value="<%= [i] %>" 
-                    <% if (values.teaching == [i] ) { %> checked <% }%> >
+                    ><input type="radio" name="teaching"  value="<%= [i] %>" 
+                    <% if (values.teaching == [i] ) { %> checked <% }%> required>
                     <%= [i] %>
                 </label>
 			<% }%>
@@ -24,8 +24,8 @@
 
 		<div>
             <% for(let i=1; i < 11; i++ ) {%>
-                <label tabindex="0"><input type="radio" name="grading" required value="<%= [i] %>" 
-                    <% if (values.grading == [i] ) { %> checked <% }%> >
+                <label tabindex="0"><input type="radio" name="grading" value="<%= [i] %>" 
+                    <% if (values.grading == [i] ) { %> checked <% }%> required>
                     <%= [i] %>
                 </label>
             <% }%>
@@ -37,8 +37,8 @@
 		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
             <div>
                 <% for(let i=1; i < 11; i++ ) {%>
-                    <label tabindex="0"><input type="radio" name="difficulty" required value="<%= [i] %>" 
-                        <% if (values.difficulty == [i] ) { %> checked <% }%> >
+                    <label tabindex="0"><input type="radio" name="difficulty" value="<%= [i] %>" 
+                        <% if (values.difficulty == [i] ) { %> checked <% }%> required>
                             <%= [i] %>
                     </label>
                     <% }%>

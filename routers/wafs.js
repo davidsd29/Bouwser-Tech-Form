@@ -10,7 +10,7 @@ form
     .get('/p1', (req, res) => {
         const searchArray = searchParts(req._parsedOriginalUrl.pathname)
         let values = awnsers.find((object) => { if (object.subject == searchArray[1] && object.pageNumber == searchArray[2]) return object}) || {};
-        console.log(values)
+        console.log(awnsers)
 
         const pageType = 'p1';
         const subject = 'wafs';
@@ -36,6 +36,8 @@ form
         };
         
         awnsers.push(obj)
+
+        console.log(awnsers)
 
         const pageType = 'p2';
         const subject = 'wafs';
