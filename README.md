@@ -149,6 +149,9 @@ Helaas kan ik deze browser niet egbruker om te testen omdat hier een vaste HTML 
 
 ---
 
+### Screen reader
+
+De screen reader reageert goed op mijn site, Het is mogelijk om alles goed voor te lezen. Zelfs de labels en de radio buttons. Als de gebruker eentje heeft geselecteerd wordt er ook gemeld welke waarde de gebruiker heeft geselecteerd.
 ### Andiod Chrome
 
 #### Features

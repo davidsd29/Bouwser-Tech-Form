@@ -9,25 +9,24 @@
 
 		<div>
 			<% for(let i = 1; i < 11; i++ ) {%>
-                <label tabindex="0"
-                    ><input type="radio" name="teaching"  value="<%= [i] %>" 
+                    <input type="radio" name="teaching" id="teaching_<%= [i] %>" value="<%= [i] %>" 
                     <% if (values.teaching == [i] ) { %> checked <% }%> required >
-                    <%= [i] %>
-                </label>
+					<label tabindex="0" for="teaching_<%= [i] %>">
+						<%= [i] %>
+					</label>
 			<% }%>
 		</div>
 	</fieldset>
 
 	<fieldset class="required_question">
-		<p>Hoe was de uitleg omtrent het vak ?</p>
+		<p>Welke cijfer geef je het vak ?</p>
 		<span class="hidden">*Hey mij ook vergeten, vul alsjeblieft een antwoord in</span>
 
 		<div>
             <% for(let i=1; i < 11; i++ ) {%>
-                <label tabindex="0"><input type="radio" name="grading" value="<%= [i] %>" 
+               	<input type="radio" name="grading" id="grading_<%= [i] %>" value="<%= [i] %>" 
                     <% if (values.grading == [i] ) { %> checked <% }%> required>
-                    <%= [i] %>
-                </label>
+				<label tabindex="0" for="grading_<%= [i] %>"><%= [i] %></label>
             <% }%>
 		</div>
 	</fieldset>
@@ -37,11 +36,11 @@
 		<span class="hidden">*Ik ben de laatste maar ook belangrijk hoor, vul alsjeblieft een antwoord in</span>
             <div>
                 <% for(let i=1; i < 11; i++ ) {%>
-                    <label tabindex="0"><input type="radio" name="difficulty" value="<%= [i] %>" 
+					<input type="radio" name="difficulty" id="difficulty_<%= [i] %>" value="<%= [i] %>" 
                         <% if (values.difficulty == [i] ) { %> checked <% }%> required>
-                            <%= [i] %>
-                    </label>
+						<label tabindex="0" for="difficulty_<%= [i] %>"><%= [i] %></label>
                     <% }%>
+
             </div>
 	</fieldset>
 
