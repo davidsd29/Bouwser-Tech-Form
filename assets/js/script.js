@@ -1,4 +1,5 @@
 import CheckRegister from './registerValidation.js'
+import CheckAnswers from './radioValidation.js'
 
 
 const popup = document.getElementById('resume')
@@ -7,27 +8,39 @@ const enquete = {
     end: document.getElementById('end'),
 }
 
+const form = {
+        question_FormField: document.querySelectorAll('.questions .required_question'),
+    	qestions_Submit: document.querySelector('.questions #submit_btn'),
+        register: document.getElementById("register_form"),
+        register_FormField: document.querySelectorAll(".form-field")
+}
 
-const register_form = document.getElementById("register_form"),
-    register_FormField = document.querySelectorAll(".form-field");
+if (form.qestions_Submit) {
+    form.qestions_Submit.addEventListener('click', (e) => CheckAnswers(e))
+
+     form.question_FormField.forEach((field) => {
+            let input = field.querySelectorAll("input");
+            input.forEach((input) =>  input.removeAttribute("required"))
+    });
+}
 
 
-if (register_form !== null) {
-    register_form.addEventListener('submit', (e) => CheckRegister(e))
+if (form.register) {
+    form.register.addEventListener('submit', (e) => CheckRegister(e))
 
-        register_FormField.forEach((field) => {
+        form.register_FormField.forEach((field) => {
             let input = field.querySelector("input");
             input.removeAttribute("required");
     });
 }
 
-if (enquete.start !== null) {
+if (enquete.start) {
     enquete.start.addEventListener('click', () => {
         localStorage.setItem('enquete', 'started')
     }); 
 }
 
-if (enquete.end !== null) {
+if (enquete.end) {
     enquete.end.addEventListener('click', () => localStorage.clear()); 
 }
 

@@ -4,7 +4,6 @@ const registerForm = {
     name: document.getElementById("first_name"),
     student_nmbr: document.getElementById("student_nmbr"),
     email: document.getElementById("email"),
-    submit: document.querySelector("#register_form sumbit")
 }
 
 const popup = document.getElementById('complete')

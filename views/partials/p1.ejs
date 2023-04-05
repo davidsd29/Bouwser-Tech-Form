@@ -4,7 +4,7 @@
 	<fieldset class="required_question">
 		<p>Hoe was de uitleg omtrent het vak ?</p>
 		<span class="hidden"
-			>*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span
+			>*Hey je bent mij vergeten in te vullen, vul alsjeblieft een antwoord in</span
 		>
 
 		<div>
@@ -20,7 +20,7 @@
 
 	<fieldset class="required_question">
 		<p>Hoe was de uitleg omtrent het vak ?</p>
-		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+		<span class="hidden">*Hey mij ook vergeten, vul alsjeblieft een antwoord in</span>
 
 		<div>
             <% for(let i=1; i < 11; i++ ) {%>
@@ -34,7 +34,7 @@
 
 	<fieldset class="required_question">
 		<p>Hoe lastig is de lesstof ?</p>
-		<span class="hidden">*Dit onderdeel is verplicht, vul alsjeblieft een antwoord in</span>
+		<span class="hidden">*Ik ben de laatste maar ook belangrijk hoor, vul alsjeblieft een antwoord in</span>
             <div>
                 <% for(let i=1; i < 11; i++ ) {%>
                     <label tabindex="0"><input type="radio" name="difficulty" value="<%= [i] %>" 
@@ -45,5 +45,5 @@
             </div>
 	</fieldset>
 
-	<input type="submit" class="btn" value="Volgende" />
+	<input type="submit" id="submit_btn" class="btn" value="Volgende" />
 </form>
