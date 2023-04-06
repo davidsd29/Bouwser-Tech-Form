@@ -152,10 +152,24 @@ Helaas kan ik deze browser niet egbruker om te testen omdat hier een vaste HTML 
 ### Screen reader
 
 De screen reader reageert goed op mijn site, Het is mogelijk om alles goed voor te lezen. Zelfs de labels en de radio buttons. Als de gebruker eentje heeft geselecteerd wordt er ook gemeld welke waarde de gebruiker heeft geselecteerd.
-### Andiod Chrome
+
+### Flow
+
+Flow is een webbrowser met een eigen browser-engine die beweert "de weergaveprestaties drastisch te verbeteren". De JavaScript-engine is de SpiderMonkey-component van Firefox.
 
 #### Features
 
 | Saving | Indicator | Back | Validation |
 | ------ | --------- | ---- | ---------- |
-|        |           |      |            |
+| ++     | ++        | ++   | ++         |
+
+#### Styling
+
+Deze browser ondersteunt mijn styling hierdoor krijgt de gebruiker meteen feedback terug. Dit zorgt voor een betere gebruiksvriendleijkheid.
+De buttons worden wel ander gevormd, ze zijn veel kleiner dan wat het zou moeten zijn.
+
+#### Javascript
+
+Javascript wordt door deze browser ondersteunt en voert de benodigde functies uit. Ook de feedback wordt gegeven aan de gebruiker. De error text wordt ook duidelijk weergeven dit stelt de gebruiker op de hoogte van wat hij of zij doet.
+
+---

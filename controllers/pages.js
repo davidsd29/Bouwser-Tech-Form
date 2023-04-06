@@ -5,7 +5,7 @@ const index =  (req, res) => {
     if ( answers.length !== 0) {
         const lastFilledArray = answers.slice(-1)
         const values = lastFilledArray.reduce((obj) => obj)
-        console.log(values)
+        
         const pageType = values.pageNumber;
         const subject = values.subject;
         const title = values.title;
